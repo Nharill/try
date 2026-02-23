@@ -20,6 +20,10 @@
             width: 100%;
             min-width: 300px;
         }
+        .inspector-input {
+            width: 100%;
+            min-width: 300px;
+        }
         .status-select {
             width: 150px; /* Increased width for status dropdown */
             min-width: 150px;
@@ -127,49 +131,40 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
- <body class="min-h-screen flex flex-col">
-  <!-- Login Page -->
+ <body class="min-h-screen flex flex-col"><!-- Login Page -->
   <div id="loginPage" class="flex-1 flex items-center justify-center bg-gray-100 p-4" style="display: flex;">
    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full text-center">
     <div class="flex flex-col items-center mb-6">
-     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4">
-      <span class="text-white text-3xl">🔑</span>
+     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4"><span class="text-white text-3xl">🔑</span>
      </div>
      <h1 class="text-3xl font-bold text-gray-900">Admin Login</h1>
      <p class="text-gray-500 mt-2">Access the inspection request dashboard</p>
     </div><!-- Login Form -->
     <form id="loginForm" class="space-y-6">
-     <div>
-      <label for="email" class="sr-only">Email</label> <input type="email" id="email" name="email" placeholder="Admin Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+     <div><label for="email" class="sr-only">Email</label> <input type="email" id="email" name="email" placeholder="Admin Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
      </div>
-     <div class="relative">
-      <label for="password" class="sr-only">Password</label> <input type="password" id="password" name="password" placeholder="Password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 pr-10"> <button type="button" id="togglePasswordVisibility" class="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"> <!-- Eye icon for show/hide password -->
-       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a. 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+     <div class="relative"><label for="password" class="sr-only">Password</label> <input type="password" id="password" name="password" placeholder="Password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 pr-10"> <button type="button" id="togglePasswordVisibility" class="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"> <!-- Eye icon for show/hide password -->
+       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a. 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
        </svg></button>
      </div><button type="submit" id="loginButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300 shadow-lg transform hover:scale-105"> Login </button>
     </form>
     <p id="loginMessage" class="text-red-500 mt-4 hidden"></p>
    </div>
   </div><!-- Dashboard Page -->
-  <div id="dashboardPage" class="hidden flex-1 flex-col">
-   <!-- Header -->
+  <div id="dashboardPage" class="hidden flex-1 flex-col"><!-- Header -->
    <header class="no-print bg-white shadow-lg p-4 flex justify-between items-center sticky top-0 z-50">
     <div class="flex items-center space-x-4">
-     <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-      <span class="text-white text-xl">📊</span>
+     <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"><span class="text-white text-xl">📊</span>
      </div>
      <h1 class="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
     </div>
-    <div class="flex items-center space-x-4">
-     <span id="welcomeMessage" class="text-gray-600 text-sm">Welcome, Admin</span> <button id="logoutButton" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors"> Logout </button>
+    <div class="flex items-center space-x-4"><span id="welcomeMessage" class="text-gray-600 text-sm">Welcome, Admin</span> <button id="logoutButton" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors"> Logout </button>
     </div>
    </header><!-- Main Content -->
    <main class="flex-1 p-8">
     <div class="max-w-7xl mx-auto main-print-container">
      <div class="flex items-start mb-6 header-print-section">
-      <div class="flex items-center header-info">
-       <img src="https://www.pup.edu.ph/resources/images/logo200.png" alt="PUP Logo" class="w-20 h-auto mr-4 print-logo" onerror="this.src='https://placehold.co/80x80/FFFFFF/000000?text=LOGO';">
+      <div class="flex items-center header-info"><img src="https://www.pup.edu.ph/resources/images/logo200.png" alt="PUP Logo" class="w-20 h-auto mr-4 print-logo" onerror="this.src='https://placehold.co/80x80/FFFFFF/000000?text=LOGO';">
        <div class="text-left header-text-block">
         <p class="text-xs text-gray-500">Republic of the Philippines</p>
         <p class="text-sm font-semibold text-gray-800">Polytechnic University of the Philippines</p>
@@ -180,14 +175,11 @@
      </div>
      <h2 class="text-3xl font-bold text-gray-900 text-center report-title">INSPECTION MONITORING REPORT</h2>
      <h3 class="text-xl font-bold text-gray-900 text-center report-subtitle">OPERATIONS PURCHASE</h3>
-     <div class="text-center text-sm font-semibold text-gray-600 mb-6 flex justify-center items-center relative">
-      <span id="dateDisplay" class="text-center italic cursor-pointer">AS OF: </span>
-      <div id="dateInputs" class="flex justify-center space-x-4 mt-2 hidden absolute top-full left-1/2 -translate-x-1/2 bg-white p-4 border border-gray-300 rounded-lg shadow-md z-10">
-       <input type="text" id="startDate" class="px-2 py-1 border border-gray-300 rounded-md w-36" placeholder="Month Day"> <span>-</span> <input type="text" id="endDate" class="px-2 py-1 border border-gray-300 rounded-md w-36" placeholder="Month Day, YYYY">
+     <div class="text-center text-sm font-semibold text-gray-600 mb-6 flex justify-center items-center relative"><span id="dateDisplay" class="text-center italic cursor-pointer">AS OF: </span>
+      <div id="dateInputs" class="flex justify-center space-x-4 mt-2 hidden absolute top-full left-1/2 -translate-x-1/2 bg-white p-4 border border-gray-300 rounded-lg shadow-md z-10"><input type="text" id="startDate" class="px-2 py-1 border border-gray-300 rounded-md w-36" placeholder="Month Day"> <span>-</span> <input type="text" id="endDate" class="px-2 py-1 border border-gray-300 rounded-md w-36" placeholder="Month Day, YYYY">
       </div>
      </div>
-     <div class="no-print flex justify-end mb-4">
-      <button id="exportCsvBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors shadow-md font-semibold"> 📥 Export to CSV </button>
+     <div class="no-print flex justify-end mb-4"><button id="exportCsvBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors shadow-md font-semibold"> 📥 Export to CSV </button>
      </div>
      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
       <div class="overflow-x-auto">
@@ -211,8 +203,7 @@
           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider actions-column">Actions</th>
          </tr>
         </thead>
-        <tbody id="requestsTableBody" class="bg-white divide-y divide-gray-200">
-         <!-- Data will be loaded here -->
+        <tbody id="requestsTableBody" class="bg-white divide-y divide-gray-200"><!-- Data will be loaded here -->
         </tbody>
        </table>
       </div>
@@ -225,85 +216,59 @@
     <div class="p-8">
      <div class="flex justify-between items-center pb-4 border-b border-gray-200 mb-4">
       <h3 class="text-2xl font-bold text-gray-900">Request Details</h3><button id="closeDetailsModal" class="text-gray-500 hover:text-gray-900 transition-colors">
-       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
        </svg></button>
      </div>
-     <div id="modalContent">
-      <!-- Formatted form content will be injected here -->
+     <div id="modalContent"><!-- Formatted form content will be injected here -->
      </div>
     </div>
    </div>
   </div><!-- Delete Confirmation Modal -->
   <div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[9999]" style="display: none;">
    <div class="bg-white rounded-lg p-6 shadow-xl max-w-sm mx-auto">
-    <div class="flex items-center space-x-4 mb-4">
-     <span class="text-red-500 text-2xl">🗑️</span>
+    <div class="flex items-center space-x-4 mb-4"><span class="text-red-500 text-2xl">🗑️</span>
      <h3 class="text-lg font-bold">Confirm Deletion</h3>
     </div>
     <p class="text-sm text-gray-700">Are you sure you want to delete this request? This action cannot be undone.</p>
-    <div class="flex justify-end mt-6 space-x-4">
-     <button id="cancelDeleteButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold px-4 py-2 rounded-lg transition-colors"> Cancel </button> <button id="confirmDeleteButton" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"> Delete </button>
-    </div>
-   </div>
-  </div><!-- Modal for Custom Inspector Input -->
-  <div id="customInspectorModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[9999]" style="display: none;">
-   <div class="bg-white rounded-lg p-6 shadow-xl max-w-sm mx-auto">
-    <div class="flex items-center space-x-4 mb-4">
-     <span class="text-blue-500 text-2xl">✏️</span>
-     <h3 class="text-lg font-bold">Add Custom Inspector</h3>
-    </div><input type="text" id="customInspectorInput" placeholder="Enter inspector name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
-    <div class="flex justify-end space-x-4">
-     <button id="cancelCustomInspector" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold px-4 py-2 rounded-lg transition-colors"> Cancel </button> <button id="confirmCustomInspector" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"> Add </button>
+    <div class="flex justify-end mt-6 space-x-4"><button id="cancelDeleteButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold px-4 py-2 rounded-lg transition-colors"> Cancel </button> <button id="confirmDeleteButton" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"> Delete </button>
     </div>
    </div>
   </div><!-- Modal for Firebase Security Rules Error -->
   <div id="firestoreRulesErrorModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[9999]" style="display: none;">
    <div class="bg-white rounded-lg p-6 shadow-xl max-w-sm mx-auto">
-    <div class="flex items-center space-x-4 mb-4">
-     <span class="text-red-500 text-2xl">⚠️</span>
+    <div class="flex items-center space-x-4 mb-4"><span class="text-red-500 text-2xl">⚠️</span>
      <h3 class="text-lg font-bold">Firestore Rules Error</h3>
     </div>
     <p class="text-sm text-gray-700">The application lacks the necessary permissions to read and update data from Firestore. Please ensure your security rules are correctly configured. <br><br>
       **To fix this:** Go to your <a href="https://console.firebase.google.com/project/inspect-128d0/firestore" target="_blank" class="text-blue-500 underline">Firestore Rules</a> in the Firebase Console and publish the provided security rules.</p>
-    <div class="flex justify-end mt-6">
-     <button onclick="this.closest('.fixed').remove()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold px-4 py-2 rounded-lg transition-colors"> OK </button>
+    <div class="flex justify-end mt-6"><button onclick="this.closest('.fixed').remove()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold px-4 py-2 rounded-lg transition-colors"> OK </button>
     </div>
    </div>
   </div>
   <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
-        import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 
-        // Firebase configuration for inspection-322dc project
+        // IMPORTANT: Replace the placeholder values below with your project's configuration from the Firebase console.
         const firebaseConfig = {
-          apiKey: "AIzaSyAY5wW9N1alNSWjSK5coP23UfOLax4lcK8",
-          authDomain: "inspection-322dc.firebaseapp.com",
-          projectId: "inspection-322dc",
-          storageBucket: "inspection-322dc.firebasestorage.app",
-          messagingSenderId: "354261059462",
-          appId: "1:354261059462:web:b235fc76b155bd80c6ce07",
-          measurementId: "G-6VEDCC3C7N"
+          apiKey: "AIzaSyDXdIjYRCjwl6zFSKAbv-Pc_FI7xQLX1WA",
+          authDomain: "inspect-128d0.firebaseapp.com",
+          projectId: "inspect-128d0",
+          storageBucket: "inspect-128d0.firebasestorage.app",
+          messagingSenderId: "989001816031",
+          appId: "1:989001816031:web:5e5b4ec4beb22b191a566a",
+          measurementId: "G-4KFMHVFG7V"
         };
         
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
         const auth = getAuth(app);
         const db = getFirestore(app);
         
-        // Enable persistent login using Firebase (data stored in Firebase, not localStorage)
-        await setPersistence(auth, browserLocalPersistence);
-        
         // IMPORTANT: Update these credentials to match the user you create in Firebase Authentication.
         const ADMIN_EMAIL = "imoadmin@pup.edu.ph";
-        const ADMIN_PASSWORD = "admin2025**";
-
-        // State for custom inspector modal
-        let pendingInspectorUpdate = null;
+        const ADMIN_PASSWORD = "IMOADMIN_2025";
 
         // Initialize Firebase
         function initializeFirebase() {
@@ -491,15 +456,15 @@
                       "Ins. Carmelo T. Osorio Jr.",
                       "Ins. Ara Diether Lei Y. De Chavez"
                     ];
+                    // Check if current value is in the list, otherwise it's custom
+                    const isCustomInspector = data.inspectedBy && !inspectors.includes(data.inspectedBy);
                     let inspectedByOptions = inspectors.map(inspector =>
                         `<option value="${inspector}" ${data.inspectedBy === inspector ? 'selected' : ''}>${inspector}</option>`
                     ).join('');
-                    
-                    // Check if current inspectedBy is not in the list (custom entry)
-                    if (data.inspectedBy && !inspectors.includes(data.inspectedBy)) {
-                        inspectedByOptions += `<option value="${data.inspectedBy}" selected>${data.inspectedBy}</option>`;
+                    if (isCustomInspector) {
+                        inspectedByOptions += `<option value="${data.inspectedBy}" selected>${data.inspectedBy} (Custom)</option>`;
                     }
-                    inspectedByOptions += `<option value="__custom__">Custom Inspector...</option>`;
+                    inspectedByOptions += `<option value="__custom__">+ Add Custom Name</option>`;
 
                     const statusOptions = ["Pending", "Complied", "Not Complied"];
                     let statusOptionsHtml = statusOptions.map(status =>
@@ -551,10 +516,13 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 category-column">${data.category || 'N/A'}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 cost-column">${cost}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 inspector-column">
-                                <select data-id="${docId}" data-field="inspectedBy" class="inspector-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option value="">Select Inspector</option>
-                                    ${inspectedByOptions}
-                                </select>
+                                <div class="inspector-wrapper" data-id="${docId}">
+                                    <select data-id="${docId}" data-field="inspectedBy" class="inspector-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                        <option value="">Select Inspector</option>
+                                        ${inspectedByOptions}
+                                    </select>
+                                    <input type="text" class="inspector-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter custom inspector name" data-id="${docId}" data-field="inspectedBy" style="display: none;">
+                                </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm status-column">
                                 <select data-id="${docId}" data-field="status" class="status-select ${statusColorClass} bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
@@ -596,15 +564,43 @@
                         const id = e.target.getAttribute('data-id');
                         const field = e.target.getAttribute('data-field');
                         const value = e.target.value;
+                        const wrapper = e.target.closest('.inspector-wrapper');
+                        const input = wrapper.querySelector('.inspector-input');
                         
                         if (value === '__custom__') {
-                            // Show custom inspector modal
-                            pendingInspectorUpdate = { id, field };
-                            document.getElementById('customInspectorInput').value = '';
-                            document.getElementById('customInspectorModal').style.display = 'flex';
-                            document.getElementById('customInspectorInput').focus();
-                        } else if (value !== '') {
+                            e.target.style.display = 'none';
+                            input.style.display = 'block';
+                            input.focus();
+                            input.value = '';
+                        } else {
+                            e.target.style.display = 'block';
+                            input.style.display = 'none';
+                            if (value) {
+                                updateRequest(id, field, value);
+                            }
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.inspector-input').forEach(input => {
+                    input.addEventListener('blur', (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        const field = e.target.getAttribute('data-field');
+                        const value = e.target.value.trim();
+                        const wrapper = e.target.closest('.inspector-wrapper');
+                        const select = wrapper.querySelector('.inspector-select');
+                        
+                        if (value) {
                             updateRequest(id, field, value);
+                            select.style.display = 'block';
+                            e.target.style.display = 'none';
+                            select.value = '';
+                        }
+                    });
+                    
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            e.target.blur();
                         }
                     });
                 });
@@ -732,27 +728,6 @@
         document.getElementById('cancelDeleteButton').addEventListener('click', () => {
             document.getElementById('deleteModal').style.display = 'none';
         });
-
-        // Custom Inspector Modal Handlers
-        document.getElementById('confirmCustomInspector').addEventListener('click', () => {
-            const customName = document.getElementById('customInspectorInput').value.trim();
-            if (customName && pendingInspectorUpdate) {
-                updateRequest(pendingInspectorUpdate.id, pendingInspectorUpdate.field, customName);
-                document.getElementById('customInspectorModal').style.display = 'none';
-                pendingInspectorUpdate = null;
-            }
-        });
-
-        document.getElementById('cancelCustomInspector').addEventListener('click', () => {
-            document.getElementById('customInspectorModal').style.display = 'none';
-            pendingInspectorUpdate = null;
-        });
-
-        document.getElementById('customInspectorInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                document.getElementById('confirmCustomInspector').click();
-            }
-        });
         
         document.getElementById('dateDisplay').addEventListener('click', () => {
             const dateInputs = document.getElementById('dateInputs');
@@ -817,5 +792,5 @@
         // Initialize
         initializeFirebase();
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d26dafa4313fee1',t:'MTc3MTg1MTA5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d26fc370381855c',t:'MTc3MTg1MjQ1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
